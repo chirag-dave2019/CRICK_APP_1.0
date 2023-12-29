@@ -1,0 +1,21 @@
+<div class="table-container">
+    <h1 class="text-4xl font-extrabold text-gray-800 px-2">Point Table</h1>
+    <table class=" shadow-lg text-center mt-8 min-w-full bg-white border border-gray-300">
+        <thead >
+          <tr>
+            <th *ngFor=" let heading of tableHeading; track let i = index" class="py-2 px-4 border-b">{{heading}}</th>   
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row with hover effect -->
+          <ng-container *ngFor="let team of pointTable; let i = index">
+            <tr *ngIf="i > 0" class="hover:text-blue-800 flex-wrap hover:bg-gray-100 hover:scale-105 transition-all cursor-pointer" [ngClass]="{'bg-green-200':i<=4,'bg-red-200':i>4}">
+              <td *ngFor="let data of team; let j = index" class="py-2 px-4 border-b">{{ data }}</td>
+            </tr>
+          </ng-container>
+          
+          <!-- Add more rows as needed -->
+    
+        </tbody>
+      </table>
+</div>

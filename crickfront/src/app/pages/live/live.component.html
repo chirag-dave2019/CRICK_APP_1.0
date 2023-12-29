@@ -1,0 +1,16 @@
+<div>
+  <h1 class="text-4xl font-extrabold text-gray-800 px-2 ">Live Cricket Score</h1>
+  <div class=" items-stretch container  flex flex-wrap flex-col md:flex-row">
+    <div *ngIf="liveMatches?.length > 0; else noMatchesTemplate" class="flex flex-wrap flex-col md:flex-row">
+      <div *ngFor="let match of liveMatches; track let i = index" class="match-item flex flex-wrap flex-col md:flex-row">
+        <div class=" p-2 md:w-full">
+          <app-match-card [match]="match"></app-match-card>
+        </div>
+      </div>
+    </div>
+    <ng-template #noMatchesTemplate>
+      <p>No live matches available</p>
+    </ng-template>
+  </div>
+</div>
+  
